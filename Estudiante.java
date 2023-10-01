@@ -23,6 +23,31 @@ public class Estudiante {
         this.fechaDeNacimiento = fechaDeNacimiento;
     }
     /**
+     * Metodo que permite obtener la edad del estudiante
+     * @return Edad del estudiante
+     *
+     * Complejidad temporal: 0(N) Tiempo Lineal
+     */
+    public int getEdad(Date fechaDeNacimiento){
+            Date fechaActual = new Date();
+            int edad = fechaActual.getYear() - fechaDeNacimiento.getYear();
+            if (fechaActual.getMonth() < fechaDeNacimiento.getMonth() ||
+                    (fechaActual.getMonth() == fechaDeNacimiento.getMonth() &&
+                            fechaActual.getDay() < fechaDeNacimiento.getDay())) {
+                edad--;
+            }
+            return edad;
+    }
+    /**
+     * Método que permite obtener el promedio de las notas del estudiante
+     * @return Promedio de las notas del estudiante
+     *
+     * Complejidad temporal: O(1) Tiempo constante
+     */
+    public double getPromedio(double notaMateria1, double notaMateria2, double notaMateria3){
+        return(notaMateria1 + notaMateria2 + notaMateria3) / 3.0;
+    }
+    /**
      * Método que permite consultar el nombre del estudiante
      * @return Nombre del estudiante
      *
